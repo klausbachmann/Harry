@@ -10,6 +10,9 @@ public class HarryController : MonoBehaviour {
     public Text text;
     public Slider slider;
     public AudioSource audio;
+    public GameObject[] Bullets;
+    public int bulletsInWeapon = 5;
+
 
     public float moveSpeed = 2;
     private float h;
@@ -75,7 +78,7 @@ public class HarryController : MonoBehaviour {
 
         // Abfeuern
         if (CrossPlatformInputManager.GetButton("Fire1")) {
-            if (time > offset)
+            if (time > offset && bulletsInWeapon>0)
             {
                 if (!GetComponent<SpriteRenderer>().flipX)
                 {
@@ -91,10 +94,12 @@ public class HarryController : MonoBehaviour {
                 }
 
 
+                kickBullet();
+                audio.Play();
                 GameObject e = Instantiate(muzzleFlash, actualPosition, Quaternion.Euler(actualRotation));
                 Destroy(e, 0.05f);
 
-                audio.Play();
+                
 
                 RaycastHit2D hit2D;
                 hit2D = Physics2D.Raycast(actualPosition, shootDirection, 12);
@@ -109,5 +114,19 @@ public class HarryController : MonoBehaviour {
                 offset = time + fireRate;
             }
         }
+
+        if (CrossPlatformInputManager.GetButton("Fire2")) {
+            for (int i = 0; i < 5; i++) {
+                Bullets[i].SetActive(true);
+            }
+            bulletsInWeapon = 5;
+            offset = time + 3;
+        }
+
+    }
+
+    void kickBullet() {
+        Bullets[bulletsInWeapon - 1].SetActive(false);
+        bulletsInWeapon--;
     }
 }
