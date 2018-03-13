@@ -210,7 +210,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 709191737}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 75b68cadd856155428911a665b67751e, type: 3}
+  m_Script: {fileID: 11500000, guid: c8d863fdfa6807b488b8664cb44afde0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!4 &709191739
@@ -251,7 +251,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: b0d8db9efc1d8e8469337ba91acefdb6, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 725789636bd133944b33b0deaa92fe05, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
@@ -398,6 +398,7 @@ Camera:
   m_TargetEye: 3
   m_HDR: 1
   m_AllowMSAA: 1
+  m_AllowDynamicResolution: 0
   m_ForceIntoRT: 0
   m_OcclusionCulling: 1
   m_StereoConvergence: 10
